@@ -8,6 +8,7 @@ import BookFilter from "../cmps/BookFilter.js";
 export default {
   template: `
     <section class="book-index">
+    <h1>Search book <BookFilter @filter="setFilterBy"/></h1>
       <BookList 
       v-if="books"
       :books="filteredBooks" 
@@ -18,7 +19,7 @@ export default {
       :book="selectedBook"
       @close="selectedBook = null" />
       <BookEdit @save="saveBook"/>
-      <BookFilter @filter="setFilterBy"/>
+      
       
 
     </section>

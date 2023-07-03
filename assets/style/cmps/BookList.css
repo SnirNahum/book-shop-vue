@@ -1,11 +1,32 @@
 .book-list ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 10px;
-    padding: 10px;
-    background-color: var(--columbia-blue);
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 60px;
+  padding: 10px;
+  background-color: var(--ocean-blue);
+  
 }
 .book-list ul li {
-    padding: 10px;
-    background-color: var(--air-force-blue);
+  display: grid;
+  align-content: space-between;
+  justify-content: center;
+  padding: 10px;
+  background-color: var(--air-force-blue);
+}
+
+.book-list li h2 {
+  text-align: center;
+  margin-top: 0;
+  height: 2.3em;
+}
+.book-list li h2:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.book-list ul li .actions {
+  display: flex;
+  justify-content: space-between;
 }

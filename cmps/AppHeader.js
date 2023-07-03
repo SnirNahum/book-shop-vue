@@ -1,17 +1,17 @@
 export default {
-    template: `
+  template: `
         <header class="app-header">
             <h1>Book shop</h1>
             <nav>
-                <a href="#" @click="setRoute('home')">Home</a>
-                <a href="#" @click="setRoute('book-index')">Books</a>
-                <a href="#" @click="setRoute('about')">About</a>
+                <RouterLink to="/" >Home</RouterLink>
+                <RouterLink to="/books" >Books</RouterLink>
+                <RouterLink to="/about" >About</RouterLink>
+
             </nav>
         </header>
     `,
-    methods: {
-        setRoute(route) {
-            this.$emit('change-route', route)
-        }
-    }
-}
+  data() {
+    return {};
+  },
+  methods: {},
+};

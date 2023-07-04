@@ -6,11 +6,12 @@ import BookDetails from "./BookDetails.js";
 import BookFilter from "../cmps/BookFilter.js";
 
 export default {
+  
   template: `
     <section class="book-index">
     <RouterLink to="/books/edit">Add book</RouterLink>
 
-      <BookFilter @filter="setFilterBy"/>
+      <BookFilter @filter="setFilterBy" />
       <BookList 
       v-if="books"
       :books="filteredBooks" 
@@ -22,8 +23,19 @@ export default {
   `,
   data() {
     return {
-      books: null,
+      books: [],
+      filterBy: null,
     };
+  },
+  computed: {
+    filteredBooks() {
+      if (!this.filterBy) return this.books;
+      const regex = new RegExp(this.filterBy.txt, "i");
+      const books = this.books.filter((book) => regex.test(book.title));
+      return books.filter(
+        (book) => book.listPrice.price >= this.filterBy.price
+      );
+    },
   },
   created() {
     bookService.query().then((books) => (this.books = books));
@@ -39,12 +51,7 @@ export default {
       this.filterBy = filterBy;
     },
   },
-  computed: {
-    filteredBooks() {
-      const regex = new RegExp(this.filterBy.txt, "i");
-      return this.books.filter((book) => regex.test(book.title));
-    },
-  },
+
   components: {
     BookList,
     BookPreview,

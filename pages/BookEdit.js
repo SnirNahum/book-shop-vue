@@ -27,10 +27,11 @@ export default {
       .get(bookId)
       .then((book) => {
         this.bookToEdit = book;
+        
       })
       .catch((err) => {
         alert("Cannot load Book");
-        this.$router.push("/book");
+        this.$router.push("/books");
       });
   },
   methods: {
@@ -42,7 +43,7 @@ export default {
         })
         .catch((err) => {
           alert("Cannot load Book");
-          this.$router.push("/book");
+          this.$router.push("/books");
         });
     },
   },

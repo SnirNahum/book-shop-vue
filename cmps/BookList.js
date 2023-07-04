@@ -15,9 +15,6 @@ export default {
     </section>
   `,
   methods: {
-    onShowDetails(bookId) {
-      this.$emit("select", bookId);
-    },
     onRemoveBook(bookId){
       this.$emit("remove", bookId)
     }
